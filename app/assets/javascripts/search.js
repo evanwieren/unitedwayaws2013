@@ -41,7 +41,9 @@ function setSearchLocation(latLng) {
   // Find the locations for the new map asynchronously.
   $.ajax({
     url:    "/search/locations",
-    data:   { lat: latLng.lat(), lng: latLng.lng() },
+    data:   { lat:    latLng.lat(),
+              lng:    latLng.lng(),
+              radius: $('#search-radius').val() },
   })
   .done(function(rs) {
     $(rs).each(function(i, md) {
