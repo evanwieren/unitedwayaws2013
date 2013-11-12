@@ -4,3 +4,10 @@ development:
       database: unitedway
       hosts:
         - localhost:27017
+
+production:
+  sessions:
+    default:
+      database: unitedway
+      hosts: 
+        - 172.31.42.138: 27017
