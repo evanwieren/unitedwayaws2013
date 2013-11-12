@@ -22,4 +22,10 @@ class Need
       :message => "I am helping out on #{self.title}."
     )
   end
+
+  def twitter_post(user)
+    twitter = user.authentications.where(provider: "twitter").first
+    client = Twitter::Client.new(:oauth_token => twitter.access_token, :oauth_token_secret => twitter.access_secret)
+    client.update("I am helping out on #{self.title}.")
+  end
 end
