@@ -70,7 +70,12 @@ function setSearchLocation(latLng) {
 function addSearchRows(searchResults) {
   var rows = _.template(
     "<% _.each(searchResults, function(md) { %>" +
-    "<tr><td><%- md.title %></td><td><%- md.desc %></td></tr>" +
+    "<tr>" +
+      "<td><%- md.title %></td>" + 
+      "<td><%- md.desc %></td>" +
+      "<td><%- md.dist %> miles</td>" +
+      "<td><%- md.pop %>/5.0</td>" +
+    "</tr>" +
     "<% }); %>",
     { searchResults: searchResults }
   );
