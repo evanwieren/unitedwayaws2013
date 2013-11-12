@@ -16,8 +16,7 @@ function initializeSearchMap() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(loc) {
       // Location found...
-      // setSearchLocation(new google.maps.LatLng(loc.coords.latitude, loc.coords.longitude));
-      setSearchLocation(dfltLoc);
+      setSearchLocation(new google.maps.LatLng(loc.coords.latitude, loc.coords.longitude));
     },
     function(error) {
       // Could not find location.

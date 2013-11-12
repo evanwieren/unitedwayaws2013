@@ -10,6 +10,11 @@
       <div class="form-group">
         <input type="text" class="form-control" id="search-zip" placeholder="Enter zip code" />
       </div>
+      <div class="form-group">
+        <select class="form-control" id="search-radius" style="width:7em">
+          <% [5,10,15,25,50,100].each{ |i|  %><option value="<%= i %>"><%= i %> miles</option><% } %>
+        </select>
+      </div>
       <button type="submit" name='Search' class="btn btn-default">Search</button>
       <button id="search-near" class="btn btn-default">Near Me</button>
     </form>
