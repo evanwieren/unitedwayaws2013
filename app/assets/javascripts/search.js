@@ -58,10 +58,23 @@ function setSearchLocation(latLng) {
         SearchInfoWindow.open(SearchMap, marker);
       });
     });
+
+    addSearchRows(rs);
   })
   .error(function(rs) {
     alert("Error: " + rs.responseJSON.error);
   });
+}
+
+function addSearchRows(searchResults) {
+  var rows = _.template(
+    "<% _.each(searchResults, function(md) { %>" +
+    "<tr><td><%- md.title %></td><td><%- md.desc %></td></tr>" +
+    "<% }); %>",
+    { searchResults: searchResults }
+  );
+
+  $('#search-table tbody').html(rows);
 }
 
 function addSearchMarker(latLng, title, iconUrl, clickCallback) {
