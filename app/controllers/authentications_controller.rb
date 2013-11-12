@@ -11,16 +11,16 @@ class AuthenticationsController < ApplicationController
       flash[:notice] = t(:signed_in)
       sign_in_and_redirect(:user, authentication.user)
     elsif current_user
-      current_user.authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'])
+      current_user.authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'], :access_token => omniauth['credentials']['token'], :access_secret => omniauth['credentials']['secret'])
       flash[:notice] = t(:success)
       redirect_to root_url
     elsif user = create_new_omniauth_user(omniauth)
-      user.authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'])
+      user.authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'], :access_token => omniauth['credentials']['token'], :access_secret => omniauth['credentials']['secret'])
       flash[:notice] = t(:welcome)
       sign_in_and_redirect(:user, user)
     else
       flash[:alert] = t(:fail)
-      redirect_to new_user_registration_url   
+      redirect_to root_url   
     end
   end
 
@@ -34,7 +34,7 @@ class AuthenticationsController < ApplicationController
   def create_new_omniauth_user(omniauth)
     user = User.new
     user.apply_omniauth(omniauth)
-    if user.save
+    if user.save!
       user
     else
       nil

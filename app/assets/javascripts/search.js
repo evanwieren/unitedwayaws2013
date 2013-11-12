@@ -16,8 +16,7 @@ function initializeSearchMap() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(loc) {
       // Location found...
-      // setSearchLocation(new google.maps.LatLng(loc.coords.latitude, loc.coords.longitude));
-      setSearchLocation(dfltLoc);
+      setSearchLocation(new google.maps.LatLng(loc.coords.latitude, loc.coords.longitude));
     },
     function(error) {
       // Could not find location.
@@ -42,7 +41,9 @@ function setSearchLocation(latLng) {
   // Find the locations for the new map asynchronously.
   $.ajax({
     url:    "/search/locations",
-    data:   { lat: latLng.lat(), lng: latLng.lng() },
+    data:   { lat:    latLng.lat(),
+              lng:    latLng.lng(),
+              radius: $('#search-radius').val() },
   })
   .done(function(rs) {
     $(rs).each(function(i, md) {

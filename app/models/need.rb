@@ -15,4 +15,17 @@ class Need
       :lng => agency.main_address.location[1]
     }
   end
+
+  def facebook_post(user)
+    me = FbGraph::User.me(user.authentications.where(provider: "facebook").first.access_token)
+    me.feed!(
+      :message => "I am helping out on #{self.title}."
+    )
+  end
+
+  def twitter_post(user)
+    twitter = user.authentications.where(provider: "twitter").first
+    client = Twitter::Client.new(:oauth_token => twitter.access_token, :oauth_token_secret => twitter.access_secret)
+    client.update("I am helping out on #{self.title}.")
+  end
 end

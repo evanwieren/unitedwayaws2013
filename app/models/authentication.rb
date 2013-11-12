@@ -8,5 +8,7 @@ class Authentication
   field :user_id
   field :provider
   field :uid
+  field :access_token
+  field :access_secret
 
 end
