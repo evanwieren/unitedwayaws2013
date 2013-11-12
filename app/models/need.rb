@@ -20,4 +20,11 @@ class Need
 
   index({ location: "2d" }, { min: -200, max: 200 })
 
+  def facebook_post(user)
+    me = FbGraph::User.me(user.authentications.where(provider: "facebook").first.access_token)
+    me.feed!(
+      :message => "I am helping out on #{self.title}."
+    )
+  end
+
 end
