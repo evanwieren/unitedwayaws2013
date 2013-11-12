@@ -12,6 +12,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'fb_graph'
+gem 'twitter'
 
 gem 'execjs'
 

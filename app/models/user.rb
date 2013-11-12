@@ -61,4 +61,8 @@ class User
     end 
     self.password, self.password_confirmation = String::RandomString(16)  
   end
+
+  def email_required?
+    false
+  end
 end

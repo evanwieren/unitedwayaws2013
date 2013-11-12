@@ -9,5 +9,6 @@ class Authentication
   field :provider
   field :uid
   field :access_token
+  field :access_secret
 
 end
