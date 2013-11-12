@@ -1,6 +1,7 @@
 Reunitedway::Application.routes.draw do
 
   get '/auth/:provider/callback' => 'authentications#create'
+  get '/status' => 'application#status'
 
   get 'search/index'
   get 'static_page/index'
