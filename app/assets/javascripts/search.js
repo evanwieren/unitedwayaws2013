@@ -41,9 +41,10 @@ function setSearchLocation(latLng) {
   // Find the locations for the new map asynchronously.
   $.ajax({
     url:    "/search/locations",
-    data:   { lat:    latLng.lat(),
-              lng:    latLng.lng(),
-              radius: $('#search-radius').val() },
+    data:   { lat:      latLng.lat(),
+              lng:      latLng.lng(),
+              radius:   $('#search-radius').val(),
+              category: $('#search-cat').val(),  },
   })
   .done(function(rs) {
     $(rs).each(function(i, md) {
@@ -69,7 +70,12 @@ function setSearchLocation(latLng) {
 function addSearchRows(searchResults) {
   var rows = _.template(
     "<% _.each(searchResults, function(md) { %>" +
-    "<tr><td><%- md.title %></td><td><%- md.desc %></td></tr>" +
+    "<tr>" +
+      "<td><%- md.title %></td>" + 
+      "<td><%- md.desc %></td>" +
+      "<td><%- md.dist %> miles</td>" +
+      "<td><%- md.pop %>/5.0</td>" +
+    "</tr>" +
     "<% }); %>",
     { searchResults: searchResults }
   );
