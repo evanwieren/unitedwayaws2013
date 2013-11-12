@@ -5,6 +5,7 @@ Reunitedway::Application.routes.draw do
 
   get 'search/index'
   get 'static_page/index'
+  get 'static_page/about'
   get 'sessions/facebook'
   get 'sessions/twitter'
   delete 'sessions/destroy'
