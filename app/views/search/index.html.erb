@@ -1,11 +1,10 @@
 <%= provide :title, 'Search' %>
 <h1>Search</h1>
-<p class="lead">
-  Add some content here
-</p>
+<div class="row">
+  </div>
 
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-5">
     <form role="form" class="form-inline" id='search-zip-form'>
       <div class="form-group">
         <input type="text" class="form-control" id="search-zip" placeholder="Enter zip code" />
@@ -18,10 +17,20 @@
         <button type="submit" id='search-button' name='Search' class="btn btn-primary">Search</button>
         <button id="search-near" class="btn btn-primary">Near Me</button>
     </form>
+    <div class='spacer'></div>
+    <p class="small">
+      This will return the top five service agencies and volunteer opportunities within the
+      specified distance from the zip code
+    </p>
   </div>
+
 </div>
 
-<hr />
+<div class='row'>
+  <div class='col-md-8'>
+    <hr />
+  </div>
+</div>
 
 <div id='search_results' class="row">
   <div class="col-md-8">
@@ -39,11 +48,11 @@
       </div>
       <div class="tab-pane active" id="table_view">
         <div class='spacer'></div>
-        <table id="search-table">
+        <table id="search-table" class='table table-striped'>
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Description</th>
+              <th id='search-table-name'>Name</th>
+              <th id='search-table-description'>Description</th>
             </tr>
           </thead>
           <tbody>
