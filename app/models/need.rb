@@ -15,4 +15,11 @@ class Need
       :lng => agency.main_address.location[1]
     }
   end
+
+  def facebook_post(user)
+    me = FbGraph::User.me(user.authentications.where(provider: "facebook").first.access_token)
+    me.feed!(
+      :message => "I am helping out on #{self.title}."
+    )
+  end
 end
