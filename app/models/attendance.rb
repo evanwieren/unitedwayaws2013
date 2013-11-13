@@ -1,14 +1,12 @@
-class Authentication
+class Attendance
 
   include Mongoid::Document
   include Mongoid::Timestamps
 
   belongs_to :user
+  belongs_to :need
 
   field :user_id
-  field :provider
-  field :uid
-  field :access_token
-  field :access_secret
+  field :need_id
 
 end

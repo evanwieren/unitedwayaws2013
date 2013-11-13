@@ -22,3 +22,7 @@
 /.idea
 /.idea/*
 
+
+/.ruby-version
+
+/config/application.yml

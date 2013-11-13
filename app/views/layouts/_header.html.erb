@@ -12,11 +12,14 @@
                   root_path, { class: 'navbar-brand' } %>
     </div>
     <div class="collapse navbar-collapse" >
-      <ul class="nav navbar-nav navbar-right">
-        <% if signed_in? %>
-            <li><%= link_to 'Sign out', signout_path, method: 'delete' %></li>
-        <% end %>
-      </ul>
+      <div class="nav navbar-nav navbar-right">
+        <div class="logged-user">
+          <% if signed_in? %>
+            <%= current_user.name %>
+            <%= link_to 'Sign out', signout_path, method: 'delete' %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

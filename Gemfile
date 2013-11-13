@@ -11,6 +11,8 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
+gem 'fb_graph'
+gem 'twitter'
 
 # excel and csv processing
 gem 'roo'

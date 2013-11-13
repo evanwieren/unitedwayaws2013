@@ -16,8 +16,7 @@ function initializeSearchMap() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(loc) {
       // Location found...
-      // setSearchLocation(new google.maps.LatLng(loc.coords.latitude, loc.coords.longitude));
-      setSearchLocation(dfltLoc);
+      setSearchLocation(new google.maps.LatLng(loc.coords.latitude, loc.coords.longitude));
     },
     function(error) {
       // Could not find location.
@@ -42,7 +41,10 @@ function setSearchLocation(latLng) {
   // Find the locations for the new map asynchronously.
   $.ajax({
     url:    "/search/locations",
-    data:   { lat: latLng.lat(), lng: latLng.lng() },
+    data:   { lat:      latLng.lat(),
+              lng:      latLng.lng(),
+              radius:   $('#search-radius').val(),
+              category: $('#search-cat').val(),  },
   })
   .done(function(rs) {
     $(rs).each(function(i, md) {
@@ -57,10 +59,28 @@ function setSearchLocation(latLng) {
         SearchInfoWindow.open(SearchMap, marker);
       });
     });
+
+    addSearchRows(rs);
   })
   .error(function(rs) {
     alert("Error: " + rs.responseJSON.error);
   });
+}
+
+function addSearchRows(searchResults) {
+  var rows = _.template(
+    "<% _.each(searchResults, function(md) { %>" +
+    "<tr>" +
+      "<td><%- md.title %></td>" + 
+      "<td><%- md.desc %></td>" +
+      "<td><%- md.dist %> miles</td>" +
+      "<td><%- md.pop %>/5.0</td>" +
+    "</tr>" +
+    "<% }); %>",
+    { searchResults: searchResults }
+  );
+
+  $('#search-table tbody').html(rows);
 }
 
 function addSearchMarker(latLng, title, iconUrl, clickCallback) {
@@ -122,7 +142,6 @@ function handleSearchForZip(e) {
   if (!zipCode || zipCode == '') {
     alert("Please fill in the zip code first!");
   } else {
-    console.log("Should search for " + zipCode);
     getLocationForZip(zipCode, function(addr) {
       if (addr && addr.geometry && addr.geometry.location) {
         var loc    = addr.geometry.location;

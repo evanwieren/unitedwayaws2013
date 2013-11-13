@@ -1,24 +1,34 @@
 class Need
-
   include Mongoid::Document
   include Mongoid::Timestamps
 
   field :nid, type: Integer
   field :title
   field :description
-  field :agency_id, type: Integer
-  field :agency_name
   field :category
+  field :attending_count, type: Integer, default: 0
+  belongs_to :agency
+  has_many :attendances
 
-  field :address
-  field :city
-  field :state
-  field :zip_code
-  field :phone
-  field :email
+  def to_search
+    {
+      :title => title,
+      :desc => description,
+      :lat => agency.main_address.location[0],
+      :lng => agency.main_address.location[1]
+    }
+  end
 
-  field :loc, :type => Array
+  def facebook_post(user)
+    me = FbGraph::User.me(user.authentications.where(provider: "facebook").first.access_token)
+    me.feed!(
+      :message => "I am helping out on #{self.title}."
+    )
+  end
 
-  index({ location: '2d' }, { min: -200, max: 200 })
-
+  def twitter_post(user)
+    twitter = user.authentications.where(provider: "twitter").first
+    client = Twitter::Client.new(:oauth_token => twitter.access_token, :oauth_token_secret => twitter.access_secret)
+    client.update("I am helping out on #{self.title}.")
+  end
 end

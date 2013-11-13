@@ -1,0 +1,7 @@
+<% if flash.count > 0 %>
+    <div class="alert alert-message">
+      <% flash.each do |key, value| %>
+          <p class="alert-content"><%= value %> </p>
+      <% end %>
+    </div>
+<% end %>

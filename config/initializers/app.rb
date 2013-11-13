@@ -1,0 +1,1 @@
+$app_yml = YAML::load(File.open("#{Rails.root}/config/application.yml"))
