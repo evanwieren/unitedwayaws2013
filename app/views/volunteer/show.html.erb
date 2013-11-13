@@ -6,7 +6,8 @@
 
 <%= form_tag sessions_facebook_path, :method => 'get', :id => 'session_facebook_form' do %>
     <div class='form-group'>
+      <p>Post to Facebook/Twitter</p>
     <%= text_area_tag 'post_to_social' %>
     </div>
-    <%= image_submit_tag "icon_facebook_login.png" %>
+    <%= submit_tag 'Post', class: 'btn btn-primary' %>
 <% end %>
