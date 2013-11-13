@@ -8,19 +8,22 @@
     </div>
 </div>
 <div class='spacer'></div>
-<div class='row'>
-    <div style="width: 100%; text-align: center;">
-      <div class='col-md-12'>
-            <%= form_tag sessions_facebook_path, :method => 'get', :id => 'session_facebook_form' do %>
-            <%= image_submit_tag "/images/icon_facebook_login.png" %>
-            <% end %>
-      </div>
-
-      <br>
-      <div class='col-md-12'>
-            <%= form_tag sessions_twitter_path, :method => 'get', :id => 'session_twitter_form' do %>
-            <%= image_submit_tag "/images/icon_twitter_login.png" %>
-            <% end %>
-      </div>
-    </div>
+<div style="width: 100%; text-align: center;">
+  <div>
+    <%= form_tag sessions_donor_path, :method => 'get', :id => 'session_donor_form' do %>
+      <%= text_field_tag 'donor_id', nil, class: 'input-sm', placeholder: 'Donor ID' %>
+      <%= submit_tag 'Enter', class: 'btn btn-primary btn-large' %>
+    <% end %>
+  </div>
+  <div style="color: #fff; margin-top: 15px; margin-bottom: 17px;">------- or -------</div>
+  <div>
+        <%= form_tag sessions_facebook_path, :method => 'get', :id => 'session_facebook_form' do %>
+        <%= image_submit_tag "/images/icon_facebook_login.png" %>
+        <% end %>
+  </div>
+  <div>
+        <%= form_tag sessions_twitter_path, :method => 'get', :id => 'session_twitter_form' do %>
+        <%= image_submit_tag "/images/icon_twitter_login.png" %>
+        <% end %>
+  </div>
 </div>
