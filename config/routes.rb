@@ -31,5 +31,7 @@ Reunitedway::Application.routes.draw do
     end
   end
 
+  resources :needs
+
   root to: 'static_page#index'
 end

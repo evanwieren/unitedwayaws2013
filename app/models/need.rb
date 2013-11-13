@@ -15,7 +15,8 @@ class Need
       :title => title,
       :desc => description,
       :lat => agency.main_address.location[0],
-      :lng => agency.main_address.location[1]
+      :lng => agency.main_address.location[1],
+      :id => nid
     }
   end
 
