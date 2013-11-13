@@ -51,7 +51,7 @@ function setSearchLocation(latLng) {
       var latLng = new google.maps.LatLng(md.lng, md.lat);
       addSearchMarker(latLng, md.title, null, function(marker) {
         html = _.template(
-          "<b><%- md.title %></b><br/><br/><%- md.desc %>",
+          "<b><%- md.title %></b><br/><br/><%- md.desc %><br/><br/><a href='/needs/<%- md.id %>'>More Details</a>",
           { md: md }
         );
 
