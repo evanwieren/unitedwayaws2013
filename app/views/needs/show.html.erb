@@ -1,6 +1,13 @@
 <h2><%= @need.title %></h2>
 <br>
 <h4>Description:</h4>
+Organization: <%= @need.agency.name %>
+Phone: <%= @need.agency.phone %>
+Email: <%= @need.agency.email %>
+Address:
+<%= @need.agency.addresses.first.street %>
+<%= @need.agency.addresses.first.city %>, <%= @need.agency.addreses.state %>, <%= @need.agency.addresses.zip %>
+
 <%= @need.description %>
 <br><br>
 <%= form_tag sessions_donor_path, :method => 'get', :id => 'session_donor_form' do %>
