@@ -27,7 +27,7 @@ class User
   field :last_sign_in_ip,    :type => String
 
 
-  has_many :donations
+  has_many :donations, order: {created_at: -1}
   ## Confirmable
   # field :confirmation_token,   :type => String
   # field :confirmed_at,         :type => Time

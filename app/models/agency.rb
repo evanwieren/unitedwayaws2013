@@ -1,5 +1,6 @@
 class Agency
   include Mongoid::Document
+  include Mongoid::Timestamps
 
   field :id, :type => Integer
   field :name
