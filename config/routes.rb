@@ -6,13 +6,15 @@ Reunitedway::Application.routes.draw do
   get 'static_page/index'
   get 'sessions/facebook'
   get 'sessions/twitter'
+  get 'admin/upload', to: 'admin#index'
+  match 'admin/import', to: 'admin#import', via: :post
   delete 'sessions/destroy'
 
   match '/search', to: 'search#index', via: :get
   match '/signout', to: 'sessions#destroy', via: :delete
 
-  get "search"            => "search#index"
-  get "search/locations"  => "search#locations"
+  get 'search'            => 'search#index'
+  get 'search/locations'  => 'search#locations'
 
   devise_for :users
 

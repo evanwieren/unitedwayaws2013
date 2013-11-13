@@ -1,0 +1,16 @@
+<div class="container">
+
+  <%= form_tag('/admin/import', method: :post, multipart: true) do %>
+    <h2 class="form-audit-heading">Please Select file to upload</h2>
+
+    <div class="form-group">
+      <label for="exampleInputFile">File input</label>
+      <input type="file" name='file' id="exampleInputFile">
+
+      <p class="help-block">Please select XLS, XLSX, or CSV file.</p>
+    </div>
+
+    <input class="btn btn-lg btn-primary btn-block submit" name="commit" type="submit" value="Import"/>
+  <% end %>
+
+</div> <!-- /container -->

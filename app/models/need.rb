@@ -3,6 +3,7 @@ class Need
   include Mongoid::Document
   include Mongoid::Timestamps
 
+  field :nid, type: Integer
   field :title
   field :description
   field :agency_id, type: Integer
@@ -18,6 +19,6 @@ class Need
 
   field :loc, :type => Array
 
-  index({ location: "2d" }, { min: -200, max: 200 })
+  index({ location: '2d' }, { min: -200, max: 200 })
 
 end

@@ -12,6 +12,14 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 
+# excel and csv processing
+gem 'roo'
+
+# geo location services
+gem 'geocoder'
+
+gem 'redis'
+
 gem 'execjs'
 
 gem 'therubyracer'
