@@ -1,31 +1,35 @@
 <%= provide :title, 'Live United' %>
-<h1>United Way</h1>
-<p class="lead">Put some content here</p>
+<h2 class="login">
+  United Way improves lives by mobilizing the caring power of communities around the world to advance the common good.
+</h2>
+<br>
+<h5 class="login">
+  Sign In or Sign Up to
+  <br>
+  look for opportunities to help
+</h5>
 
-<div class='row'>
-  <div class='col-md-2'>
-      <div class="panel panel-default">
-        <div class="panel-heading">Login</div>
-        <div class="panel-body">
-          <div class='row center-block'>
-            <div class='col-md-4'>
-              <p>
-                <%= form_tag sessions_facebook_path, :method => 'get', :id => 'session_facebook_form' do %>
-                    <%= submit_tag 'Facebook', class: 'btn btn-primary btn-large' %>
-                <% end %>
-               </p>
-            </div>
-          </div>
-          <div class='row'></div>
-          <div>
-            <div class='col-md-4'>
-              <p>
-                <%= form_tag sessions_twitter_path, :method => 'get', :id => 'session_twitter_form' do %>
-                    <%= submit_tag 'Twitter', class: 'btn btn-primary btn-large' %>
-                <% end %>
-              </p>
-            </div>
-          </div>
+<div class='row' style="text-align: center;">
+  <div class='col-md-12'>
+      <div class='row center-block'>
+        <div class='col-md-12'>
+          <p>
+            <%= form_tag sessions_facebook_path, :method => 'get', :id => 'session_facebook_form' do %>
+                <%= image_submit_tag "icon_facebook_login.png" %>
+            <% end %>
+           </p>
+        </div>
+      </div>
+      <div class='row'>
+        ----- or -----
+      </div>
+      <div>
+        <div class='col-md-12'>
+          <p>
+            <%= form_tag sessions_twitter_path, :method => 'get', :id => 'session_twitter_form' do %>
+                <%= image_submit_tag "icon_twitter_login.png" %>
+            <% end %>
+          </p>
         </div>
       </div>
   </div>

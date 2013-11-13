@@ -12,6 +12,39 @@
  *= require_tree .
  */
 
+ html.login
+ {
+/*  background: url(login_background.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-color: #000;*/
+
+ }
+
+ body.login
+ {
+  background-color: transparent;
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
+  height: 100%;
+ }
+
+ body.login:before {
+   content: "";
+   position: absolute;
+   background: url(login_background.jpg);
+   background-size: cover;
+   z-index: -1; /* Keep the background behind the content */
+   height: 100%; width: 100%; /* Using Glen Maddern's trick /via @mente */
+   -webkit-filter: blur(6px);
+   /* don't forget to use the prefixes you need */
+   transform: scale(5);
+   transform-origin: top left;
+   filter: blur(20px);
+ }
+
 #site_logo
 {
 }
@@ -21,3 +54,37 @@
     margin-top:15px;
 }
 
+.logged-user
+{
+  margin-top: 50px;
+}
+
+h2.login
+{
+  text-align: center;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 38px;
+  clear: both;
+  line-height: 1.0em;
+  margin-bottom: 20px;
+  letter-spacing: -2px;
+  color: #fff;
+  font-family: "CrimsonSemibold", "Times New Roman", Georgia, serif;
+  text-shadow: 1px 1px #555;
+}
+
+h5.login
+{
+  text-align: center;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 18px;
+  clear: both;
+  line-height: 1.0em;
+  margin-bottom: 20px;
+  letter-spacing: -2px;
+  color: #fff;
+  font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+  text-shadow: 1px 1px #555;
+}

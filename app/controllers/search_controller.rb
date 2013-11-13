@@ -1,6 +1,7 @@
 class SearchController < ApplicationController
 
   def index
+    puts current_user.name
   end
 
   def locations
