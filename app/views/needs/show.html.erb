@@ -10,12 +10,15 @@ Address:<br/>
 
 <%= @need.description %>
 <br><br>
-<% unless Attendance.where(user_id: current_user.id, need_id: params[:need_id]).first %>
-  <%= form_tag attend_user_path(current_user) + "?need_id=" + params[:id], :method => 'get', :id => 'session_donor_form' do %>
+
+<% if !Attendance.where(user_id: current_user.id.to_s, need_id: params[:id]).first %>
+  <%= form_tag attend_user_path(current_user), :method => 'get', :id => 'session_donor_form' do %>
+    <%= hidden_field_tag 'need_id', params[:id] %>
     <%= submit_tag 'Attend', class: 'btn btn-primary btn-large' %>
   <% end %>
 <% else %>
-  <%= form_tag remove_user_path(current_user) + "?need_id=" + params[:id], :method => 'get', :id => 'session_donor_form' do %>
+  <%= form_tag remove_user_path(current_user), :method => 'get', :id => 'session_donor_form' do %>
+      <%= hidden_field_tag 'need_id', params[:id] %>
       <%= submit_tag 'Cancel Attendance', class: 'btn btn-primary btn-large' %>
     <% end %>
 <% end %>
