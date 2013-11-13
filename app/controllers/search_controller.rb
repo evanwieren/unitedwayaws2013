@@ -4,7 +4,6 @@ class SearchController < ApplicationController
 
   def index
     @body_class = 'search'
-    puts current_user.name
     # TODO: Should probably pull the list of categories (other than "All")
     #       from the DB.
     @categories = %w( All BasicNeeds Education General Income )
