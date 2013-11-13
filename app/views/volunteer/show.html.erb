@@ -1,0 +1,12 @@
+<%= provide :title, 'New Volunteer Attendance' %>
+
+<h1>Volunteer</h1>
+
+<%= render 'shared/flash_messages' %>
+
+<%= form_tag sessions_facebook_path, :method => 'get', :id => 'session_facebook_form' do %>
+    <div class='form-group'>
+    <%= text_area_tag 'post_to_social' %>
+    </div>
+    <%= image_submit_tag "icon_facebook_login.png" %>
+<% end %>

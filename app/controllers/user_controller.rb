@@ -7,5 +7,9 @@ class UserController < ApplicationController
 	def remove
 	  attendance = Attendance.find_or_create_by(user_id: params[:user_id], need_id: params[:need_id])
 	  attendance.destroy
-	end
+  end
+
+  def show
+
+  end
 end

@@ -1,5 +1,7 @@
 Reunitedway::Application.routes.draw do
 
+  post 'volunteer/create'
+  get 'volunteer/show'
   get '/auth/:provider/callback' => 'authentications#create'
   get '/status' => 'application#status'
 
@@ -8,6 +10,7 @@ Reunitedway::Application.routes.draw do
   get 'static_page/about'
   get 'sessions/facebook'
   get 'sessions/twitter'
+  get 'user/show'
   delete 'sessions/destroy'
 
   match '/search', to: 'search#index', via: :get
