@@ -48,10 +48,10 @@ function setSearchLocation(latLng) {
   })
   .done(function(rs) {
     $(rs).each(function(i, md) {
-      var latLng = new google.maps.LatLng(md.lat, md.lng);
+      var latLng = new google.maps.LatLng(md.lng, md.lat);
       addSearchMarker(latLng, md.title, null, function(marker) {
         html = _.template(
-          "<b><%- md.title %></b><br/><br/><%- md.desc %>",
+          "<b><%- md.title %></b><br/><br/><%- md.desc %><br/><br/><a href='/needs/<%- md.id %>'>More Details</a>",
           { md: md }
         );
 
@@ -71,10 +71,11 @@ function addSearchRows(searchResults) {
   var rows = _.template(
     "<% _.each(searchResults, function(md) { %>" +
     "<tr>" +
-      "<td><%- md.title %></td>" + 
+      "<td><%- md.title %></td>" +
       "<td><%- md.desc %></td>" +
       "<td><%- md.dist %> miles</td>" +
       "<td><%- md.pop %>/5.0</td>" +
+      "<td><a href='needs/<%- md.id %>'>Details</a></td>" +
     "</tr>" +
     "<% }); %>",
     { searchResults: searchResults }
