@@ -3,6 +3,7 @@ class SearchController < ApplicationController
   helper_method :sort_column, :sort_direction
 
   def index
+    @body_class = 'search'
     puts current_user.name
     # TODO: Should probably pull the list of categories (other than "All")
     #       from the DB.
