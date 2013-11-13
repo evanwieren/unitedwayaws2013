@@ -5,4 +5,9 @@ class StaticPageController < ApplicationController
       redirect_to search_path
     end
   end
+
+  def about
+
+  end
+
 end

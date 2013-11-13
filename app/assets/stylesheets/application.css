@@ -45,6 +45,10 @@
    filter: blur(20px);
  }
 
+body{
+ background-color: #333;
+}
+
 #site_logo
 {
 }

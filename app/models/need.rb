@@ -5,7 +5,9 @@ class Need
   field :title
   field :description
   field :category
+  field :attending_count, type: Integer, default: 0
   belongs_to :agency
+  has_many :attendances
 
   def to_search
     {

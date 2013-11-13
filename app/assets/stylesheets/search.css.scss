@@ -17,9 +17,9 @@
   width:125px;
 }
 
-#search-zip,#search-button,#search-radius
+#search-zip,#search-button,#search-radius,#search-cat
 {
-    margin-right:5px;
+    margin-right:3px;
 }
 
 #search-button
@@ -40,4 +40,9 @@
 {
   min-width: 320px;
   min-height: 450px;
+}
+
+#search-table-name
+{
+  min-width: 200px;
 }
