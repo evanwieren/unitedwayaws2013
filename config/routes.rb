@@ -17,5 +17,12 @@ Reunitedway::Application.routes.draw do
 
   devise_for :users
 
+  resources :users do 
+    member do
+      get 'attend'
+      get 'remove'
+    end
+  end
+
   root to: 'static_page#index'
 end

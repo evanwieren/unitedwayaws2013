@@ -6,6 +6,7 @@ class Need
   field :description
   field :category
   belongs_to :agency
+  has_many :attendances
 
   def to_search
     {
