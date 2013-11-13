@@ -7,7 +7,7 @@ class Address
   field :zip
   field :location
 
-  index({ location: "2d" }, { min: -200, max: 200 })
+  index({ location: "2d" })
 
   belongs_to :agency
 end

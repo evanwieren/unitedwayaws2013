@@ -7,6 +7,7 @@ class SearchController < ApplicationController
   def locations
     lat = params[:lat]
     lng = params[:lng]
+    radius_in_miles = params[:radius]
 
     if lat.blank? || lng.blank?
       render status: 500, json: { error: "Both latitude and longitude are required!" }
@@ -28,7 +29,11 @@ class SearchController < ApplicationController
     #   },
     # ]
 
-    rs = Need.all.map(&:to_search)
+    needs = Address.collection.find({location: { "$within" => { "$centerSphere" => [[lng, lat], radius_in_miles / 3559.0 ]}}}).map do |address|
+      address.agency.needs
+    end.flatten.uniq
+
+    rs = needs.map(&:to_search)
 
     render json: rs
   end
