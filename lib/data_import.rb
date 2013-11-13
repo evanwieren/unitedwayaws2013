@@ -13,20 +13,15 @@ class DataImport
       #next if Need.where(nid: row['needid']).exists?
       loc = Geocoder.search("#{row['agencyaddress']} #{row['agencycity']} #{row['agencystate']} #{row['agencyzip'].to_i}")
       begin
+
+      agency = Agency.find_or_create_by(id: row['agencyid'], name: row['agency_name'], phone: row['phone'], email: row['email'])
+      address = Address.create(street: row['agencyaddress'], city: row['agencycity'], state: row['agencystate'], zip: row['agencyzip'], location: loc.first.data['displayLatLng'].values, agency_id: agency.id)
       need = Need.create(
           :nid => row['needid'],
           :title => row['needtitle'],
           :description => row['description'],
-          :agency_id => row['agencyid'],
-          :agency_name => row['agencyname'],
+          :agency_id => agency.id,
           :category => row['category'],
-          :address => row['agencyaddress'],
-          :city => row['agencycity'],
-          :zip_code => row['agencyzip'],
-          :state => row['agencystate'],
-          :phone => row['phone'],
-          :email => row['email'],
-          :loc => loc.first.data['displayLatLng'].values
       )
         need.save!
       rescue
