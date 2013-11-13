@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
 
   def donor
     if user = User.where(donor_id: params["donor_id"]).first
-      current_user = user
+      sign_in user
       redirect_to "/search"
     else
       flash[:notice] = "Incorrect ID"
