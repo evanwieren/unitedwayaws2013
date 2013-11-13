@@ -1,6 +1,13 @@
 <h2><%= @need.title %></h2>
 <br>
 <h4>Description:</h4>
+Organization: <%= @need.agency.name %><br/>
+Phone: <%= @need.agency.phone %><br/>
+Email: <%= @need.agency.email %><br/><br/>
+Address:<br/>
+<%= @need.agency.addresses.first.street %><br/>
+<%= @need.agency.addresses.first.city %>, <%= @need.agency.addresses.first.state %>, <%= @need.agency.addresses.first.zip %><br/><br/>
+
 <%= @need.description %>
 <br><br>
 <% if Attendance.where(user_id: current_user.id, need_id: params[:need_id]).first %>
