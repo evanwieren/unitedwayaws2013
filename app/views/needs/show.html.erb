@@ -1,12 +1,12 @@
 <h2><%= @need.title %></h2>
 <br>
 <h4>Description:</h4>
-Organization: <%= @need.agency.name %><nobr></nobr>
-Phone: <%= @need.agency.phone %><nobr></nobr>
-Email: <%= @need.agency.email %><nobr></nobr>
-Address:<nobr></nobr>
-<%= @need.agency.addresses.first.street %><nobr></nobr>
-<%= @need.agency.addresses.first.city %>, <%= @need.agency.addresses.first.state %>, <%= @need.agency.addresses.first.zip %><nobr></nobr>
+Organization: <%= @need.agency.name %><br/>
+Phone: <%= @need.agency.phone %><br/>
+Email: <%= @need.agency.email %><br/><br/>
+Address:<br/>
+<%= @need.agency.addresses.first.street %><br/>
+<%= @need.agency.addresses.first.city %>, <%= @need.agency.addresses.first.state %>, <%= @need.agency.addresses.first.zip %><br/><br/>
 
 <%= @need.description %>
 <br><br>
