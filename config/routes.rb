@@ -10,6 +10,7 @@ Reunitedway::Application.routes.draw do
   get 'static_page/about'
   get 'sessions/facebook'
   get 'sessions/twitter'
+  get 'sessions/donor'
   get 'admin/upload', to: 'admin#index'
   match 'admin/import', to: 'admin#import', via: :post
   get 'user/show'
@@ -23,7 +24,7 @@ Reunitedway::Application.routes.draw do
 
   devise_for :users
 
-  resources :users do 
+  resources :users do
     member do
       get 'attend'
       get 'remove'

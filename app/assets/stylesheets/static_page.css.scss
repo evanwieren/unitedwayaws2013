@@ -8,16 +8,6 @@
   min-width: 768px;
 }
 
-#session_facebook_form
-{
-  margin-left:20px;
-}
-
-#session_twitter_form
-{
-  margin-left:20px;
-}
-
 
 body.login:before {
   content: "";
@@ -55,7 +45,7 @@ h2.login
   margin-bottom: 20px;
   letter-spacing: -2px;
   color: #fff;
-  font-family: "CrimsonSemibold", "Times New Roman", Georgia, serif;
+  font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
   text-shadow: 1px 1px #555;
 }
 
@@ -68,7 +58,7 @@ h5.login
   clear: both;
   line-height: 1.0em;
   margin-bottom: 20px;
-  letter-spacing: -2px;
+  letter-spacing: -1px;
   color: #fff;
   font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
   text-shadow: 1px 1px #555;
