@@ -142,7 +142,6 @@ function handleSearchForZip(e) {
   if (!zipCode || zipCode == '') {
     alert("Please fill in the zip code first!");
   } else {
-    console.log("Should search for " + zipCode);
     getLocationForZip(zipCode, function(addr) {
       if (addr && addr.geometry && addr.geometry.location) {
         var loc    = addr.geometry.location;
