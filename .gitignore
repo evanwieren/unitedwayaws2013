@@ -24,3 +24,5 @@
 
 
 /.ruby-version
+
+/config/application.yml
