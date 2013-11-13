@@ -4,12 +4,41 @@
 
 #login_forms
 {
-  background-image:url(image_path('hands_up.jpg'));
   min-height: 400px;
   min-width: 768px;
 }
 
 #session_facebook_form
 {
-  margin-left:40px;
+  margin-right:10px;
+}
+
+#session_twitter_form
+{
+  margin-left:20px;
+}
+
+
+body.login:before {
+  content: "";
+  position: absolute;
+  background: url(image_path('login_background.jpg'));
+  background-size: cover;
+  z-index: -1; /* Keep the background behind the content */
+  height: 100%; width: 100%; /* Using Glen Maddern's trick /via @mente */
+  -webkit-filter: blur(6px);
+  /* don't forget to use the prefixes you need */
+  transform: scale(5);
+  transform-origin: top left;
+  filter: blur(20px);
+}
+
+h1.login
+{
+  color: #fff;
+}
+
+h4.login
+{
+  color: #fff;
 }

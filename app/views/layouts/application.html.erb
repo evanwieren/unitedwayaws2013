@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="<%= @body_class %>">
 <head>
   <title><%= full_title(yield(:title)) %></title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
@@ -15,7 +15,7 @@
   <!-- Latest compiled and minified JavaScript -->
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body class="<%= @body_class %>">
     <!-- Wrap all page content here -->
     <div id="wrap">
         <%= render 'layouts/header' %>
