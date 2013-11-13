@@ -73,8 +73,6 @@ function addSearchRows(searchResults) {
     "<tr>" +
       "<td><%- md.title %></td>" +
       "<td><%- md.desc %></td>" +
-      "<td><%- md.dist %> miles</td>" +
-      "<td><%- md.pop %>/5.0</td>" +
       "<td><a href='needs/<%- md.id %>'>Details</a></td>" +
     "</tr>" +
     "<% }); %>",

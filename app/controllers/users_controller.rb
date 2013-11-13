@@ -11,6 +11,11 @@ class UsersController < ApplicationController
     redirect_to :back
   end
 
+  def tweet
+    need = Need.where(nid: params[:need_id]).first
+    need.twitter_post(current_user)
+  end
+
   def show
 
   end

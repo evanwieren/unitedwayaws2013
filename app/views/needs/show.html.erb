@@ -21,4 +21,12 @@ Address:<br/>
       <%= hidden_field_tag 'need_id', params[:id] %>
       <%= submit_tag 'Cancel Attendance', class: 'btn btn-primary btn-large' %>
     <% end %>
+    <br><br>
+    Post your attendance to Twitter!<br>
+  <%= form_tag tweet_user_path(current_user), :method => 'get', :id => 'session_donor_form' do %>
+      <%= hidden_field_tag 'need_id', params[:id] %>
+      <%= text_area_tag 'post_info', "I'm volunteering here: " + @need.title, size: "55x6" %>
+      <br><br>
+      <%= submit_tag 'Tweet it!', class: 'btn btn-primary btn-large' %>
+    <% end %>
 <% end %>

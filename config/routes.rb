@@ -28,6 +28,7 @@ Reunitedway::Application.routes.draw do
     member do
       get 'attend'
       get 'remove'
+      get 'tweet'
     end
   end
 
