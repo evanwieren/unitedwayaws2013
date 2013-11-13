@@ -10,7 +10,7 @@ Address:<br/>
 
 <%= @need.description %>
 <br><br>
-<% if Attendance.where(user_id: current_user.id, need_id: params[:need_id]).first %>
+<% unless Attendance.where(user_id: current_user.id, need_id: params[:need_id]).first %>
   <%= form_tag attend_user_path(current_user) + "?need_id=" + params[:id], :method => 'get', :id => 'session_donor_form' do %>
     <%= submit_tag 'Attend', class: 'btn btn-primary btn-large' %>
   <% end %>
