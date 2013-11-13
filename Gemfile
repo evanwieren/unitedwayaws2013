@@ -21,6 +21,7 @@ gem 'roo'
 gem 'geocoder'
 
 gem 'redis'
+gem 'pry'
 
 gem 'execjs'
 
