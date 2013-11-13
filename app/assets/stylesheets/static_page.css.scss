@@ -8,21 +8,11 @@
   min-width: 768px;
 }
 
-#session_facebook_form
-{
-  margin-right:10px;
-}
-
-#session_twitter_form
-{
-  margin-left:20px;
-}
-
 
 body.login:before {
   content: "";
   position: absolute;
-  background: url(image_path('login_background.jpg'));
+  background: url('/images/login_background.jpg');
   background-size: cover;
   z-index: -1; /* Keep the background behind the content */
   height: 100%; width: 100%; /* Using Glen Maddern's trick /via @mente */
@@ -41,4 +31,35 @@ h1.login
 h4.login
 {
   color: #fff;
+}
+
+
+h2.login
+{
+  text-align: center;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 38px;
+  clear: both;
+  line-height: 1.0em;
+  margin-bottom: 20px;
+  letter-spacing: -2px;
+  color: #fff;
+  font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+  text-shadow: 1px 1px #555;
+}
+
+h5.login
+{
+  text-align: center;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 18px;
+  clear: both;
+  line-height: 1.0em;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+  color: #fff;
+  font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+  text-shadow: 1px 1px #555;
 }

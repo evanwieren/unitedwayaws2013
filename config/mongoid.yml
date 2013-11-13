@@ -10,4 +10,4 @@ production:
     default:
       database: unitedway
       hosts: 
-        - 172.31.42.138: 27017
+        - 172.31.42.138:27017

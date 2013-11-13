@@ -7,28 +7,22 @@ class DataImport
   def process!
     #need to add logic to handle multiple sheets
     spreadsheet = Roo::Spreadsheet.open(@file_name)
-    process2(spreadsheet.sheet('DonationData'))
     header = spreadsheet.row(1).map(&:downcase)
     (2..spreadsheet.last_row).each do |i|
       row = Hash[[header, spreadsheet.row(i)].transpose]
-      next if Need.where(nid: row['needid']).exists?
+      #next if Need.where(nid: row['needid']).exists?
       loc = Geocoder.search("#{row['agencyaddress']} #{row['agencycity']} #{row['agencystate']} #{row['agencyzip'].to_i}")
       begin
-        need = Need.create(
-            :nid => row['needid'],
-            :title => row['needtitle'],
-            :description => row['description'],
-            :agency_id => row['agencyid'],
-            :agency_name => row['agencyname'],
-            :category => row['category'],
-            :address => row['agencyaddress'],
-            :city => row['agencycity'],
-            :zip_code => row['agencyzip'],
-            :state => row['agencystate'],
-            :phone => row['phone'],
-            :email => row['email'],
-            :loc => loc.first.data['displayLatLng'].values
-        )
+
+      agency = Agency.find_or_create_by(id: row['agencyid'], name: row['agency_name'], phone: row['phone'], email: row['email'])
+      address = Address.create(street: row['agencyaddress'], city: row['agencycity'], state: row['agencystate'], zip: row['agencyzip'], location: loc.first.data['displayLatLng'].values, agency_id: agency.id)
+      need = Need.create(
+          :nid => row['needid'],
+          :title => row['needtitle'],
+          :description => row['description'],
+          :agency_id => agency.id,
+          :category => row['category'],
+      )
         need.save!
       rescue
         next

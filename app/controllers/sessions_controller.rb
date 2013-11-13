@@ -9,6 +9,16 @@ class SessionsController < ApplicationController
     redirect_to "/auth/twitter"
   end
 
+  def donor
+    if user = User.where(donor_id: params["donor_id"]).first
+      current_user = user
+      redirect_to "/search"
+    else
+      flash[:notice] = "Incorrect ID"
+      redirect_to "/"
+    end
+  end
+
   def destroy
     sign_out
     redirect_to root_path

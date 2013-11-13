@@ -26,6 +26,7 @@ class User
   field :last_sign_in_at,    :type => Time
   field :current_sign_in_ip, :type => String
   field :last_sign_in_ip,    :type => String
+  field :donor_id, :type => String
 
 
   has_many :donations, order: {created_at: -1}
@@ -44,23 +45,23 @@ class User
     self.email = omniauth['info']['email'] if email.blank?
     apply_trusted_services(omniauth) if self.new_record?
   end
-  
-  def apply_trusted_services(omniauth) 
+
+  def apply_trusted_services(omniauth)
     user_info = omniauth['info']
     puts omniauth.inspect
     if omniauth['extra'] && omniauth['extra']['user_hash']
       user_info.merge!(omniauth['extra']['user_hash'])
-    end 
+    end
     if self.name.blank?
       self.name   = user_info['name']   unless user_info['name'].blank?
       self.name ||= user_info['nickname'] unless user_info['nickname'].blank?
       self.name ||= (user_info['first_name']+" "+user_info['last_name']) unless \
         user_info['first_name'].blank? || user_info['last_name'].blank?
-    end  
+    end
     if self.email.blank?
       self.email = user_info['email'] unless user_info['email'].blank?
-    end 
-    self.password, self.password_confirmation = String::RandomString(16)  
+    end
+    self.password, self.password_confirmation = String::RandomString(16)
   end
 
   def email_required?

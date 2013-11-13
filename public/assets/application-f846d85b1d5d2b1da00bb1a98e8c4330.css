@@ -1,0 +1,111 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+ */
+
+
+body{
+    background-color: #333;
+}
+
+#site_logo
+{
+}
+
+.spacer
+{
+    margin-top:15px;
+}
+
+.logged-user
+{
+  margin-top: 50px;
+}
+#search_results {
+  min-height: 600px; }
+
+#search-zip {
+  width: 125px; }
+
+#search-zip, #search-button, #search-radius, #search-cat {
+  margin-right: 3px; }
+
+#search-radius {
+  width: 40px; }
+
+#search-near {
+  display: none; }
+
+#map-canvas {
+  min-width: 320px;
+  min-height: 450px; }
+
+#search-table-name {
+  min-width: 200px; }
+#login_forms {
+  min-height: 400px;
+  min-width: 768px; }
+
+#session_facebook_form {
+  margin-right: 10px; }
+
+#session_twitter_form {
+  margin-left: 20px; }
+
+body.login:before {
+  content: "";
+  position: absolute;
+  background: url("/assets/login_background.jpg");
+  background-size: cover;
+  z-index: -1;
+  /* Keep the background behind the content */
+  height: 100%;
+  width: 100%;
+  /* Using Glen Maddern's trick /via @mente */
+  -webkit-filter: blur(6px);
+  /* don't forget to use the prefixes you need */
+  transform: scale(5);
+  transform-origin: top left;
+  filter: blur(20px); }
+
+h1.login {
+  color: #fff; }
+
+h4.login {
+  color: #fff; }
+body {
+    height: 100%;
+    /* The html and body elements cannot have any padding or margin. */
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    /* Negative indent footer by its height */
+    margin: 0 auto -60px;
+    /* Pad bottom by footer height */
+    padding: 0 0 60px;
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+    margin-top: 25px;
+    height: 60px;
+}
+
+#reg-table-name {
+  min-width: 200px; }
+#post_to_social {
+  min-width: 250px;
+  min-height: 100px; }
