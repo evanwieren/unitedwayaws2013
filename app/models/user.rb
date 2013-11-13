@@ -8,6 +8,7 @@ class User
          :recoverable, :rememberable, :trackable, :validatable
 
   field :name
+  field :donor_id
   ## Database authenticatable
   field :email,              :type => String, :default => ""
   field :encrypted_password, :type => String, :default => ""

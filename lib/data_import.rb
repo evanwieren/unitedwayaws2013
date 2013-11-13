@@ -30,7 +30,27 @@ class DataImport
 
 
     end
+    process2(spreadsheet.sheet('DonationData'))
+  end
 
+  def process2(spreadsheet)
+    header = spreadsheet.row(1).map(&:downcase)
+    (2..spreadsheet.last_row).each do |i|
+      row = Hash[[header, spreadsheet.row(i)].transpose]
+      user = User.find_or_create_by(donor_id: row['donorid'], name: "#{row['firstname'].strip} #{row['lastname'].strip}", password: '12345678')
+      donation = Donation.create(
+          :user_id => user.id,
+          :category => row['category'],
+          :transaction_date => row['transaction_date'],
+          :transaction_amount => row['transaction_amount']
+      )
+      begin
+        donation.save!
+      rescue => e
+        p e
+        next
+      end
+    end
   end
 
 end
