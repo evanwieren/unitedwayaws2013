@@ -12,6 +12,14 @@
  *= require_tree .
  */
 
+body{
+ background-color: #333;
+}
+
+.container
+{
+}
+
 #site_logo
 {
 }

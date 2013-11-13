@@ -13,6 +13,8 @@
     </div>
     <div class="collapse navbar-collapse" >
       <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to 'Home', root_path %></li>
+        <li><%= link_to 'About', static_page_about_url %></li>
         <% if signed_in? %>
             <li><%= link_to 'Sign out', signout_path, method: 'delete' %></li>
         <% end %>

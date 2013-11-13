@@ -1,32 +1,30 @@
 <%= provide :title, 'Live United' %>
 <h1>United Way</h1>
-<p class="lead">Put some content here</p>
-
 <div class='row'>
-  <div class='col-md-2'>
-      <div class="panel panel-default">
-        <div class="panel-heading">Login</div>
-        <div class="panel-body">
-          <div class='row center-block'>
-            <div class='col-md-4'>
-              <p>
-                <%= form_tag sessions_facebook_path, :method => 'get', :id => 'session_facebook_form' do %>
-                    <%= submit_tag 'Facebook', class: 'btn btn-primary btn-large' %>
-                <% end %>
-               </p>
-            </div>
+  <div class='col-md-2 col-md-offset-2'>
+    <div class="panel panel-default">
+      <div class="panel-heading">Login</div>
+      <div class="panel-body">
+        <div class='row center-block'>
+          <div class='col-md-4'>
+            <p>
+              <%= form_tag sessions_facebook_path, :method => 'get', :id => 'session_facebook_form' do %>
+                  <%= submit_tag 'Facebook', class: 'btn btn-primary btn-large' %>
+              <% end %>
+            </p>
           </div>
-          <div class='row'></div>
-          <div>
-            <div class='col-md-4'>
-              <p>
-                <%= form_tag sessions_twitter_path, :method => 'get', :id => 'session_twitter_form' do %>
-                    <%= submit_tag 'Twitter', class: 'btn btn-primary btn-large' %>
-                <% end %>
-              </p>
-            </div>
+        </div>
+        <div class='row'></div>
+        <div>
+          <div class='col-md-4'>
+            <p>
+              <%= form_tag sessions_twitter_path, :method => 'get', :id => 'session_twitter_form' do %>
+                  <%= submit_tag 'Twitter', class: 'btn btn-primary btn-large' %>
+              <% end %>
+            </p>
           </div>
         </div>
       </div>
+    </div>
   </div>
 </div>
