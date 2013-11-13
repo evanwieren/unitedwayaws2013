@@ -1,4 +1,6 @@
 class SearchController < ApplicationController
+  #before_filter :signed_in_user
+  helper_method :sort_column, :sort_direction
 
   def index
     # TODO: Should probably pull the list of categories (other than "All")
@@ -10,6 +12,7 @@ class SearchController < ApplicationController
     lat = params[:lat]
     lng = params[:lng]
     cat = params[:category]
+    sort_query = sort_column + ' ' + sort_direction
 
     cat = nil if cat == 'All'
 
@@ -18,7 +21,7 @@ class SearchController < ApplicationController
       return
     end
 
-    # rs = [
+    #rs = [
     #   {
     #     title:  'The Wynn Golf Club',
     #     desc:   'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
@@ -35,10 +38,15 @@ class SearchController < ApplicationController
     #     lat:    36.129556,
     #     lng:    -115.125786,
     #   },
-    # ]
+    #]
 
     rs = Need.all.map(&:to_search)
 
     render json: rs
   end
+
+  private
+    def sort_column
+      %w[Name Distance Popularity].include?(params[:sort]) ? params[:sort] : 'name'
+    end
 end

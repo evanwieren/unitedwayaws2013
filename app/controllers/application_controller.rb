@@ -6,4 +6,11 @@ class ApplicationController < ActionController::Base
   def status
   	render :text => "OK"
   end
+
+  protected
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : 'asc'
+    end
+
 end
