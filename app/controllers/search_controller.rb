@@ -49,7 +49,7 @@ class SearchController < ApplicationController
   end
 
   def find_needs_in_area(lng, lat, radius_in_miles, limit)
-    Address.collection.find({location: { "$within" => { "$centerSphere" => [[lng, lat], radius_in_miles / 3559.0 ]}}}).limit(limit).map do |address|
+    Address.collection.find({location: { "$within" => { "$centerSphere" => [[lng.to_f, lat.to_f], radius_in_miles.to_f / 3559.0 ]}}}).limit(limit).map do |address|
       address.agency.needs
     end.flatten.uniq
   end
