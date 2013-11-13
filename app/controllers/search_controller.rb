@@ -1,7 +1,9 @@
 class SearchController < ApplicationController
+  #before_filter :signed_in_user
+  helper_method :sort_column, :sort_direction
 
   def index
-    puts current_user.name
+    #puts current_user.name
     # TODO: Should probably pull the list of categories (other than "All")
     #       from the DB.
     @categories = %w( All BasicNeeds Education General Income )
@@ -10,6 +12,8 @@ class SearchController < ApplicationController
   def locations
     lat = params[:lat]
     lng = params[:lng]
+
+    sort_params = "#{sort_column} #{sort_direction}"
 
     if lat.blank? || lng.blank?
       render status: 500, json: { error: "Both latitude and longitude are required!" }
@@ -35,4 +39,11 @@ class SearchController < ApplicationController
 
     render json: rs
   end
+
+  private
+
+    def sort_column
+      %w[ Name Popularity Distance].include?(params[:sort]) ? params[:sort] : 'name'
+    end
+
 end
